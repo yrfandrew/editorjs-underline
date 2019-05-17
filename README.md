@@ -48,7 +48,7 @@ This Tool has no config params
 
 ## Output data
 
-Marked text will be wrapped with a `mark` tag with an `cdx-marker` class.
+Marked text will be wrapped with a `span` tag with an `cdx-underline` class.
 
 ```json
 {
@@ -58,4 +58,3 @@ Marked text will be wrapped with a `mark` tag with an `cdx-marker` class.
     }
 }
 ```
-
