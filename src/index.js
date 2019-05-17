@@ -111,13 +111,13 @@ class Underline {
      *
      * // range.surroundContents(span);
      */
-    underline.appendChild(range.extractContents());
-    range.insertNode(underline);
+    span.appendChild(range.extractContents());
+    range.insertNode(span);
 
     /**
      * Expand (add) selection to highlighted block
      */
-    this.api.selection.expandToTag(underline);
+    this.api.selection.expandToTag(span);
   }
 
   /**
