@@ -1,14 +1,22 @@
 {
-  "name": "underline",
+  "name": "editorjs-underline",
   "version": "1.0.0",
-  "private": true,
+  "keywords": [
+    "codex editor",
+    "underline",
+    "tool",
+    "editor.js",
+    "editorjs"
+  ],
+  "private": false,
   "scripts": {
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development --watch"
   },
-  "dependencies": {
-    "core-js": "^2.6.5"
-  },
+  "description": "Underline Tool for Editor.js",
+  "license": "MIT",
+  "repository": "https://github.com/yrfandrew/editorjs-underline",
+  "main": "./dist/bundle.js",
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
@@ -23,24 +31,9 @@
     "webpack": "^4.31.0",
     "webpack-cli": "^3.3.2"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
+  "author": {
+    "name": "Andrew Ye",
+    "email": "yrfandrew@163.com"
   },
   "browserslist": [
     "> 1%",
