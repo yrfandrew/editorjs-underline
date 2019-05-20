@@ -33,9 +33,7 @@ var editor = EditorJS({
   
   tools: {
     ...
-    underline: {
-      class: Underline,
-    }
+    underline: Underline
   },
   
   ...
@@ -48,13 +46,13 @@ This Tool has no config params
 
 ## Output data
 
-Marked text will be wrapped with a `span` tag with an `cdx-underline` class.
+Marked text will be wrapped with a `u` tag.
 
 ```json
 {
     "type" : "text",
     "data" : {
-        "text" : "Create a directory for your module, enter it and run <span class=\"cdx-underline\">npm init</span> command."
+        "text" : "Create a directory for your module, enter it and run <u>npm init</u> command."
     }
 }
 ```

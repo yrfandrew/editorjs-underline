@@ -1,9 +1,4 @@
 /**
- * Build styles
- */
-require('./index.css').toString();
-
-/**
  * Underline Tool for the Editor.js
  *
  * Allows to wrap inline fragment and style it somehow.
@@ -14,9 +9,7 @@ class Underline {
    *
    * @type {string}
    */
-  static get CSS() {
-    return 'cdx-underline';
-  };
+  static get CSS() {};
 
   /**
    * @param {{api: object}}  - Editor.js API
@@ -36,7 +29,7 @@ class Underline {
      *
      * @type {string}
      */
-    this.tag = 'SPAN';
+    this.tag = 'U';
 
     /**
      * CSS classes
@@ -80,7 +73,7 @@ class Underline {
       return;
     }
 
-    let termWrapper = this.api.selection.findParentTag(this.tag, Underline.CSS);
+    let termWrapper = this.api.selection.findParentTag(this.tag);
 
     /**
      * If start or end of selection is in the highlighted block
@@ -101,9 +94,7 @@ class Underline {
     /**
      * Create a wrapper for highlighting
      */
-    let span = document.createElement(this.tag);
-
-    span.classList.add(Underline.CSS);
+    let u = document.createElement(this.tag);
 
     /**
      * SurroundContent throws an error if the Range splits a non-Text node with only one of its boundary points
@@ -111,13 +102,13 @@ class Underline {
      *
      * // range.surroundContents(span);
      */
-    span.appendChild(range.extractContents());
-    range.insertNode(span);
+    u.appendChild(range.extractContents());
+    range.insertNode(u);
 
     /**
      * Expand (add) selection to highlighted block
      */
-    this.api.selection.expandToTag(span);
+    this.api.selection.expandToTag(u);
   }
 
   /**
@@ -157,7 +148,7 @@ class Underline {
    * Check and change Term's state for current selection
    */
   checkState() {
-    const termTag = this.api.selection.findParentTag(this.tag, Underline.CSS);
+    const termTag = this.api.selection.findParentTag(this.tag);
 
     this.button.classList.toggle(this.iconClasses.active, !!termTag);
   }
@@ -167,7 +158,7 @@ class Underline {
    * @return {string}
    */
   get toolboxIcon() {
-    return '<svg width="16" height="16"> <path d="M4.632 0.421v7.579c0 1.86 1.508 3.368 3.368 3.368s3.368-1.508 3.368-3.368v0-7.579h1.684v7.579c0 2.79-2.262 5.053-5.053 5.053s-5.053-2.262-5.053-5.053v0-7.579h1.684zM1.263 14.737h13.474v1.684h-13.474v-1.684z"></path> </svg>'
+    return '<svg width="20" height="20"><path d="M3.194 18.75h13.611v-1.944h-13.611v1.944zM10 14.861c3.222 0 5.833-2.612 5.833-5.833v0-7.778h-2.431v7.778c0 1.879-1.523 3.403-3.403 3.403v0c-1.879 0-3.403-1.523-3.403-3.403v0-7.778h-2.431v7.778c0 3.222 2.612 5.833 5.833 5.833v0z"></path></svg>'
   }
 
   /**
@@ -176,9 +167,7 @@ class Underline {
    */
   static get sanitize() {
     return {
-      span: {
-        class: Underline.CSS
-      }
+      u: {}
     };
   }
 }
